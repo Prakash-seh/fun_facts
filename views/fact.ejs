@@ -1,0 +1,10 @@
+<%- include("partials/header") %>
+<div class="container">
+    <div class="jumbotron text-center my-4">
+        <h1 class="display-1">Fact <%= fact[0] %></h1>
+        <!-- <p class="lead">Some children are made of meat and blood</p> -->
+        <p class="lead"><%= fact[1] %></p>
+    </div>
+    <a href="/fact" class="btn btn-warning float-right">Random Fact</a>
+</div>
+<%- include("partials/footer") %>

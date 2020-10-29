@@ -1,0 +1,68 @@
+<%- include("partials/header") %>
+
+<div class="container-fluid">    
+    <div class="row justify-content-center mt-4">
+        <div class="col-9 col-sm-6 col-lg-4 col-xl-4">
+            <form action="/register" class="p-4 shadow-lg" method="POST">
+                <h1 class="display-4 text-center">Register</h1>
+                <hr>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email"
+                            class="form-control"
+                            name="email"
+                            pattern="[A-Za-z0-9._%+-]{2,}@[a-zA-Z]{1,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"
+                            id="email"
+                            placeholder="Email"
+                            oninvalid="this.setCustomValidity('Email is invalid or already taken')"
+                            onchange="try{setCustomValidity('')}catch(e){}"
+                            oninput="setCustomValidity(' ')"
+                            required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text"
+                           class="form-control"
+                           name="username"
+                           id="username"
+                           placeholder="Username"
+                           pattern="^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"
+                           oninvalid="this.setCustomValidity('This username is unavailable.')"
+                           onchange="try{setCustomValidity('')}catch(e){}"
+                           oninput="setCustomValidity(' ')"
+                           required>
+                        <small class="form-text text-muted mt-1">Username must contains alphanumeric characters, underscore and dot.</small>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                        <input type="text"
+                               class="form-control"
+                               name="password"
+                               pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$"
+                               id="password"
+                               placeholder="Password"
+                               oninvalid="this.setCustomValidity('Minimum six characters, at least one letter, one number and one special character.')"
+                               onchange="try{setCustomValidity('')}catch(e){}"
+                               oninput="setCustomValidity(' ')"
+                               required>
+                        <small class="form-text text-muted mt-1">Make sure it's at least 6 characters including a number and a letter and a special character.</small>
+                </div>
+                <button class="btn btn-success btn-block mt-4 shadow">Register <span><i class="fas fa-user-plus"></i></span></button>
+                <div class="row mt-4">
+                    <div class="col">
+                        <a class="btn btn-block btn-social btn-google shadow" href="/auth/google">
+                            <span class="fa fa-google"></span> Sign up with google
+                        </a>
+                    </div>
+                    <div class="col mt-2">
+                        <a class="btn btn-block btn-social btn-facebook shadow" href="/auth/facebook">
+                            <span class="fa fa-facebook"></span> Sign up with facebook
+                        </a>
+                    </div>
+                </div>
+            </form>            
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer") %>
